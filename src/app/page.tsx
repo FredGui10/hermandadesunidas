@@ -7,6 +7,12 @@ const basePath =
     ? "/hermandadesunidas"
     : "";
 
+const contactInfo = {
+  phone: "+46 70 421 60 99",
+  email: "hermandadeseuropau@gmail.com",
+  facebook: "Hermandades Unidas del Señor de los Milagros en Europa",
+};
+
 const brotherhoods = [
   { name: "Hamburgo", country: "Alemania", image: "sm-hamburgo.jpeg" },
   { name: "Hannover", country: "Alemania", image: "sm-hannover.jpeg" },
@@ -200,19 +206,154 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CLOSING */}
-      <section className="closing-section" id="contacto">
-        <ScrollReveal>
-          <p className="eyebrow">HERMANDADES UNIDAS · EUROPA</p>
-          <h2>
-            Amar es servir.
-            <br />
-            Unidos en la fe.
-          </h2>
-          <a href="mailto:contacto@hermandadesunidas.eu" className="closing-link">
-            CONTACTAR CON NOSOTROS <span>→</span>
-          </a>
-        </ScrollReveal>
+      {/* CONTACT */}
+      <section className="contact-section section-padding" id="contacto">
+        <div className="container">
+          <ScrollReveal>
+            <div className="section-heading">
+              <p className="eyebrow">ESTAMOS PARA SERVIR</p>
+              <h2 className="section-title">
+                Conectemos nuestras hermandades.
+              </h2>
+              <p>
+                Para consultas, información y comunicación institucional,
+                ponemos a tu disposición nuestros canales de contacto.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="contact-grid">
+            <ScrollReveal>
+              <div className="contact-intro">
+                <p className="eyebrow">HERMANDADES UNIDAS · EUROPA</p>
+                <h3>Una misma fe, siempre en contacto.</h3>
+                <p>
+                  Estamos abiertos a recibir consultas y mensajes de
+                  hermandades, comunidades y personas que comparten
+                  nuestra devoción al Señor de los Milagros.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={150}>
+              <div className="contact-details">
+                <div className="contact-item">
+                  <span className="contact-icon">☎</span>
+                  <div>
+                    <p>Teléfono</p>
+                    <a href={`tel:${contactInfo.phone.replaceAll(" ", "")}`}>
+                      {contactInfo.phone}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="contact-item">
+                  <span className="contact-icon">✉</span>
+                  <div>
+                    <p>Correo electrónico</p>
+                    <a href={`mailto:${contactInfo.email}`}>
+                      {contactInfo.email}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="contact-item">
+                  <span className="contact-icon">f</span>
+                  <div>
+                    <p>Facebook</p>
+                    <span>{contactInfo.facebook}</span>
+                  </div>
+                </div>
+
+                <div className="contact-note">
+                  <span>FE · TRADICIÓN · UNIDAD</span>
+                  <p>
+                    Unidos por nuestra devoción y comprometidos
+                    con nuestras comunidades en Europa.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          
+          </div>
+
+          {/* FORMULARIO DE CONTACTO */}
+          <ScrollReveal>
+            <div className="contact-form-wrapper">
+              <div className="contact-form-heading">
+                <p className="eyebrow">ESCRÍBENOS</p>
+                <h3>Estamos encantados de escucharte.</h3>
+                <p>
+                  Envíanos tu consulta o mensaje. Nuestro equipo
+                  recibirá tu comunicación a través del formulario.
+                </p>
+              </div>
+
+              <form
+                className="contact-form"
+                action="https://formspree.io/f/xbgolgdo"
+                method="POST"
+              >
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="Nuevo mensaje desde la web de Hermandades Unidas"
+                />
+
+                <div className="form-row">
+                  <div className="form-field">
+                    <label htmlFor="contact-name">Nombre completo</label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      name="nombre"
+                      placeholder="Tu nombre"
+                      required
+                    />
+                  </div>
+
+                  <div className="form-field">
+                    <label htmlFor="contact-email">Correo electrónico</label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      name="email"
+                      placeholder="nombre@correo.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="form-field">
+                  <label htmlFor="contact-subject">Asunto</label>
+                  <input
+                    id="contact-subject"
+                    type="text"
+                    name="asunto"
+                    placeholder="¿Sobre qué deseas escribirnos?"
+                    required
+                  />
+                </div>
+
+                <div className="form-field">
+                  <label htmlFor="contact-message">Mensaje</label>
+                  <textarea
+                    id="contact-message"
+                    name="mensaje"
+                    rows={6}
+                    placeholder="Escribe aquí tu mensaje..."
+                    required
+                  />
+                </div>
+
+                <button type="submit" className="contact-submit">
+                  ENVIAR MENSAJE <span>→</span>
+                </button>
+              </form>
+            </div>
+          </ScrollReveal>
+
+        </div>
       </section>
 
       {/* FOOTER */}

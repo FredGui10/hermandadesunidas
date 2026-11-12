@@ -2,6 +2,11 @@
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 
+const basePath =
+  process.env.NODE_ENV === "production"
+    ? "/hermandadesunidas"
+    : "";
+
 const brotherhoods = [
   { name: "Hamburgo", country: "Alemania", image: "sm-hamburgo.jpeg" },
   { name: "Hannover", country: "Alemania", image: "sm-hannover.jpeg" },
@@ -20,7 +25,7 @@ export default function Home() {
         <div className="container header-inner">
           <a href="#" className="brand">
             <Image
-              src="/images/sm-hermandadesunidas.jpeg"
+              src={`${basePath}/images/sm-hermandadesunidas.jpeg`}
               alt="Emblema de Hermandades Unidas"
               width={58}
               height={58}
@@ -49,7 +54,7 @@ export default function Home() {
       {/* HERO */}
       <section className="hero" id="inicio">
         <Image
-          src="/images/sm-principal.jpeg"
+          src={`${basePath}/images/sm-principal.jpeg`}
           alt="Multitud reunida en una celebración del Señor de los Milagros"
           fill
           priority
@@ -135,7 +140,7 @@ export default function Home() {
                 <article className="brotherhood-card">
                   <div className="card-image">
                     <Image
-                      src={`/images/${item.image}`}
+                      src={`${basePath}/images/${item.image}`}
                       alt={`Emblema de la hermandad de ${item.name}`}
                       fill
                       sizes="(max-width: 640px) 100vw, 33vw"
@@ -165,7 +170,7 @@ export default function Home() {
           <ScrollReveal>
             <div className="history-image">
               <Image
-                src="/images/sm-image1.jpeg"
+                src={`${basePath}/images/sm-image1.jpeg`}
                 alt="Espacio de devoción al Señor de los Milagros"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"

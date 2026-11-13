@@ -865,3 +865,19 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+/* DATOS DE LOS RESPONSABLES */
+.contact-person strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--purple);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.contact-person a {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 15px;
+  text-decoration: none;
+}

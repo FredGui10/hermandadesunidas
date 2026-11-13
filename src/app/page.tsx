@@ -8,8 +8,24 @@ const basePath =
     : "";
 
 const contactInfo = {
-  phone: "+46 70 421 60 99",
-  email: "hermandadeseuropau@gmail.com",
+  contacts: [
+    {
+      name: "Hno. Luis Bustillos",
+      role: "Coordinador General",
+      phone: "+33 6 50 96 23 78",
+    },
+    {
+      name: "Hno. Edgar Medina",
+      role: "Coordinador Adjunto",
+      phone: "+49 176 473 573 31",
+    },
+    {
+      name: "Hno. José Medina",
+      role: "Secretario",
+      phone: "+34 614 39 95 04",
+    },
+  ],
+  email: "hermandadesunidaseuropa@gmail.com",
   facebook: "Hermandades Unidas del Señor de los Milagros en Europa",
 };
 
@@ -237,15 +253,19 @@ export default function Home() {
 
             <ScrollReveal delay={150}>
               <div className="contact-details">
-                <div className="contact-item">
-                  <span className="contact-icon">☎</span>
-                  <div>
-                    <p>Teléfono</p>
-                    <a href={`tel:${contactInfo.phone.replaceAll(" ", "")}`}>
-                      {contactInfo.phone}
-                    </a>
-                  </div>
-                </div>
+{contactInfo.contacts.map((person) => (
+  <div className="contact-item" key={person.name}>
+    <span className="contact-icon">☎</span>
+    <div className="contact-person">
+      <p>{person.role}</p>
+      <strong>{person.name}</strong>
+      <a href={`tel:${person.phone.replaceAll(" ", "")}`}>
+        {person.phone}
+      </a>
+    </div>
+  </div>
+))}
+
 
                 <div className="contact-item">
                   <span className="contact-icon">✉</span>

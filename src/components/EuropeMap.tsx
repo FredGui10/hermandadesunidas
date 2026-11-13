@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import ScrollReveal from "@/components/ScrollReveal";
 import {
   ComposableMap,
   Geographies,
@@ -82,6 +83,7 @@ export default function EuropeMap() {
   className="europe-map-section section-padding"
   id="hermandades">
       <div className="container">
+        <ScrollReveal>
         <div className="section-heading">
           <p className="eyebrow">NUESTRA PRESENCIA EN EUROPA</p>
 
@@ -97,10 +99,11 @@ export default function EuropeMap() {
           <p className="map-interaction-hint">
             <span>✦</span> Explora Europa: haz clic sobre un país
           </p>
-        </div>
+        </div></ScrollReveal>
 
-        <div className="europe-map">
-          <ComposableMap
+        <ScrollReveal>
+  <div className="europe-map">
+    <ComposableMap
             projection="geoMercator"
             projectionConfig={{
               center: [15, 54],
@@ -146,9 +149,11 @@ export default function EuropeMap() {
                 })
               }
             </Geographies>
-          </ComposableMap>
-        </div>
+              </ComposableMap>
+  </div>
+</ScrollReveal>
 
+        <ScrollReveal>
         <div className="country-results" key={selectedCountry}>
           <p className="eyebrow">NUESTRA COMUNIDAD</p>
 
@@ -213,7 +218,7 @@ export default function EuropeMap() {
               Próximamente podrás consultar su ficha completa.
             </p>
           )}
-        </div>
+        </div></ScrollReveal>
       </div>
     </section>
   );

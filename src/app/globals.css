@@ -124,6 +124,10 @@ a {
   width: 58px;
   height: 58px;
   object-fit: contain;
+  border: 1px solid var(--gold);
+  padding: 3px;
+  background: var(--ivory);
+  box-shadow: 0 2px 8px rgba(50, 16, 68, 0.12);
 }
 
 .brand strong,

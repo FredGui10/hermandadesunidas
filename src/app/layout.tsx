@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     "Unidos por nuestra fe y devoción al Señor de los Milagros. Conoce las hermandades que forman parte de nuestra comunidad en Europa.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

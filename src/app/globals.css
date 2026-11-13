@@ -881,3 +881,229 @@ a {
   font-size: 15px;
   text-decoration: none;
 }
+
+/* EUROPE MAP - COUNTRY BROTHERHOODS */
+
+.country-results {
+  margin-top: 45px;
+  padding-top: 35px;
+  border-top: 1px solid rgba(197, 161, 93, 0.35);
+  animation: countryReveal 650ms ease both;
+}
+
+.country-results h3 {
+  color: #321044;
+  font-family: Georgia, serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 400;
+  margin: 10px 0 28px;
+}
+
+.country-brotherhoods {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.country-brotherhood-card {
+  background: #fffdf9;
+  border: 1px solid rgba(197, 161, 93, 0.55);
+  animation: countryReveal 650ms ease both;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.country-brotherhood-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 14px 35px rgba(50, 16, 68, 0.10);
+}
+
+.country-card-image {
+  position: relative;
+  height: 230px;
+  margin: 12px;
+  background: #fff;
+  border: 1px solid rgba(197, 161, 93, 0.35);
+}
+
+.country-card-image img {
+  object-fit: contain;
+  padding: 12px;
+}
+
+.country-card-info {
+  position: relative;
+  padding: 20px 22px 24px;
+  border-top: 1px solid rgba(197, 161, 93, 0.3);
+}
+
+.country-card-info p {
+  color: #9a8159;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.country-card-info h4 {
+  color: #321044;
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.country-card-info span {
+  position: absolute;
+  right: 22px;
+  bottom: 23px;
+  color: #c5a15d;
+}
+
+.empty-country {
+  color: #756d76;
+  line-height: 1.8;
+  max-width: 650px;
+}
+
+@keyframes countryReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .country-brotherhoods {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .country-brotherhoods {
+    grid-template-columns: 1fr;
+  }
+
+  .country-card-image {
+    height: 250px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .country-results,
+  .country-brotherhood-card {
+    animation: none;
+    transition: none;
+  }
+}
+
+
+/* EUROPE MAP - INTERACTION DETAILS */
+
+.map-interaction-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 18px;
+  padding: 9px 17px;
+  border: 1px solid rgba(197, 161, 93, 0.55);
+  border-radius: 30px;
+  color: #321044;
+  background: rgba(255, 255, 255, 0.45);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.map-interaction-hint span {
+  color: #c5a15d;
+  font-size: 16px;
+}
+
+.europe-map .rsm-geography {
+  cursor: pointer;
+  transition: fill 220ms ease, opacity 220ms ease;
+}
+
+.europe-map .rsm-geography:hover {
+  fill: #b99a6a;
+}
+
+.country-count {
+  margin: 10px 0 25px;
+  color: #756d76;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+.country-brotherhood-card {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid rgba(197, 161, 93, 0.55);
+  background: #fffdfa;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease,
+    border-color 250ms ease;
+  animation: brotherhoodAppear 550ms ease both;
+}
+
+.country-brotherhood-card:hover {
+  transform: translateY(-6px);
+  border-color: #c5a15d;
+  box-shadow: 0 12px 28px rgba(50, 16, 68, 0.12);
+}
+
+.country-brotherhood-card.is-selected {
+  border: 2px solid #321044;
+  box-shadow: 0 8px 25px rgba(50, 16, 68, 0.15);
+}
+
+.country-brotherhood-card:focus-visible {
+  outline: 3px solid #c5a15d;
+  outline-offset: 4px;
+}
+
+.country-card-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.country-card-info {
+  position: relative;
+}
+
+.brotherhood-selection-note {
+  margin-top: 25px;
+  padding: 17px 20px;
+  border-left: 3px solid #c5a15d;
+  background: rgba(233, 223, 208, 0.55);
+  color: #321044;
+  font-size: 14px;
+  animation: brotherhoodAppear 400ms ease both;
+}
+
+@keyframes brotherhoodAppear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .country-brotherhood-card,
+  .brotherhood-selection-note,
+  .europe-map .rsm-geography {
+    animation: none;
+    transition: none;
+  }
+}

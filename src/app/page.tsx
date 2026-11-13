@@ -1,6 +1,7 @@
 
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
+import EuropeMap from "@/components/EuropeMap";
 
 const basePath =
   process.env.NODE_ENV === "production"
@@ -141,50 +142,7 @@ export default function Home() {
       </section>
 
       {/* BROTHERHOODS */}
-      <section className="brotherhood-section section-padding" id="hermandades">
-        <div className="container">
-          <ScrollReveal>
-            <div className="section-heading">
-              <p className="eyebrow">NUESTRA COMUNIDAD EUROPEA</p>
-              <h2 className="section-title">
-                Hermandades que nos unen
-              </h2>
-              <p>
-                Descubre las comunidades que mantienen viva
-                esta devoción en diferentes ciudades de Europa.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <div className="brotherhood-grid">
-            {brotherhoods.map((item, index) => (
-              <ScrollReveal key={item.name} delay={(index % 3) * 100}>
-                <article className="brotherhood-card">
-                  <div className="card-image">
-                    <Image
-                      src={`${basePath}/images/${item.image}`}
-                      alt={`Emblema de la hermandad de ${item.name}`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 33vw"
-                    />
-                  </div>
-                  <div className="card-info">
-                    <p>{item.country}</p>
-                    <h3>{item.name}</h3>
-                    <span className="card-arrow">↗</span>
-                  </div>
-                </article>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <p className="directory-note">
-            Estas son algunas de las hermandades que forman parte
-            de nuestra comunidad. El directorio se ampliará a
-            medida que se incorporen y validen sus perfiles.
-          </p>
-        </div>
-      </section>
+<EuropeMap />
 
       {/* HISTORY */}
       <section className="history-section section-padding" id="historia">

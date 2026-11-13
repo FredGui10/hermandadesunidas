@@ -2,6 +2,7 @@
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import EuropeMap from "@/components/EuropeMap";
+import MobileMenu from "@/components/MobileMenu";
 
 const basePath =
   process.env.NODE_ENV === "production"
@@ -71,6 +72,7 @@ export default function Home() {
           <a href="#hermandades" className="header-button">
             DIRECTORIO <span>↗</span>
           </a>
+          <MobileMenu />
         </div>
       </header>
 
@@ -334,13 +336,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="site-footer">
-        <div className="container footer-inner">
-          <p>© 2026 Hermandades Unidas del Señor de los Milagros en Europa.</p>
-          <p>Fe · Tradición · Unidad</p>
-        </div>
-      </footer>
-    </main>
+      
+{/* FOOTER */}
+<footer className="site-footer">
+  <div className="container footer-main">
+
+    <div className="footer-brand">
+      <Image
+        src={`${basePath}/images/sm-hermandadesunidas.jpeg`}
+        alt="Emblema de Hermandades Unidas"
+        width={68}
+        height={68}
+        className="footer-logo"
+      />
+
+      <div>
+        <strong>HERMANDADES UNIDAS</strong>
+        <span>DEL SEÑOR DE LOS MILAGROS · EUROPA</span>
+      </div>
+
+      <p>
+        Una misma fe, una misma devoción y una comunidad
+        unida a través de Europa.
+      </p>
+    </div>
+
+    <div className="footer-column">
+      <h3>NAVEGACIÓN</h3>
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#hermandades">Hermandades</a>
+      <a href="#historia">Historia</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+
+    <div className="footer-column">
+      <h3>CONTACTO</h3>
+      <a href="mailto:hermandadeseuropau@gmail.com">
+        Correo electrónico
+      </a>
+      <a href="#contacto">Facebook</a>
+      <span>Europa</span>
+    </div>
+
+  </div>
+
+  <div className="container footer-bottom">
+    <p>
+      © 2026 Hermandades Unidas del Señor de los Milagros en Europa.
+    </p>
+    <span>FE · TRADICIÓN · UNIDAD</span>
+  </div>
+</footer>
+</main>
   );
 }

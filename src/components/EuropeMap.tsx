@@ -78,7 +78,9 @@ export default function EuropeMap() {
   }
 
   return (
-    <section className="europe-map-section section-padding">
+    <section
+  className="europe-map-section section-padding"
+  id="hermandades">
       <div className="container">
         <div className="section-heading">
           <p className="eyebrow">NUESTRA PRESENCIA EN EUROPA</p>

@@ -1327,3 +1327,106 @@ a {
     grid-column: auto;
   }
 }
+
+/* BUSCADOR DE HERMANDADES */
+
+.brotherhood-search {
+  position: relative;
+  width: 220px;
+  flex-shrink: 0;
+  z-index: 1100;
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 43px;
+  padding: 0 12px;
+  border: 1px solid rgba(197, 161, 93, 0.7);
+  background: #fffdf9;
+}
+
+.search-icon {
+  color: #9A8159;
+  font-size: 23px;
+}
+
+.search-input-wrapper input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #321044;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.search-input-wrapper input::placeholder {
+  color: #918894;
+}
+
+.search-results {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 280px;
+  max-height: 320px;
+  overflow-y: auto;
+  background: #fffdf9;
+  border: 1px solid #C5A15D;
+  box-shadow: 0 12px 30px rgba(50, 16, 68, 0.12);
+  animation: mobileMenuAppear 200ms ease both;
+}
+
+.search-result {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 13px 16px;
+  border: 0;
+  border-bottom: 1px solid #eee5da;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.search-result:hover {
+  background: #F7F3ED;
+}
+
+.search-result-name {
+  color: #321044;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.search-result-country {
+  margin-top: 4px;
+  color: #918894;
+  font-size: 11px;
+}
+
+.search-empty {
+  padding: 16px;
+  color: #756D76;
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .brotherhood-search {
+    display: none;
+  }
+
+  .mobile-search-slot .brotherhood-search {
+    display: block;
+    width: 100%;
+  }
+
+  .mobile-search-slot .search-results {
+    width: 100%;
+    z-index: 1200;
+  }
+}

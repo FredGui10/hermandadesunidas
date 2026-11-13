@@ -2,8 +2,9 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
+import { brotherhoods } from "@/data/brotherhoods";
 import {
   ComposableMap,
   Geographies,
@@ -31,16 +32,6 @@ const europeanCountries = new Set([
   "United Kingdom", "Vatican",
 ]);
 
-const brotherhoods = [
-  { name: "Hamburgo", country: "Germany", image: "sm-hamburgo.jpeg" },
-  { name: "Hannover", country: "Germany", image: "sm-hannover.jpeg" },
-  { name: "Hospitalet", country: "Spain", image: "sm-hospitalet.jpeg" },
-  { name: "Madrid", country: "Spain", image: "sm-madrid.jpeg" },
-  { name: "Majadahonda", country: "Spain", image: "sm-majadahonda.jpeg" },
-  { name: "Sevilla", country: "Spain", image: "sm-sevilla.jpeg" },
-  { name: "Torino", country: "Italy", image: "sm-torino.jpeg" },
-];
-
 const countryNames: Record<string, string> = {
   Germany: "Alemania",
   Spain: "España",
@@ -63,10 +54,43 @@ const countryNames: Record<string, string> = {
 export default function EuropeMap() {
   const [selectedCountry, setSelectedCountry] = useState("Germany");
   const [selectedBrotherhood, setSelectedBrotherhood] = useState<string | null>(null);
+    useEffect(() => {
+    function handleBrotherhoodSelection(event: Event) {
+      const customEvent = event as CustomEvent<{
+        country: string;
+        brotherhoodId: string;
+      }>;
+
+      const { country, brotherhoodId } = customEvent.detail;
+
+      setSelectedCountry(country);
+
+      const selected = brotherhoods.find(
+        (item) => item.id === brotherhoodId
+      );
+
+      setSelectedBrotherhood(selected?.name ?? null);
+    }
+
+    window.addEventListener(
+      "select-brotherhood-country",
+      handleBrotherhoodSelection
+    );
+
+    return () => {
+      window.removeEventListener(
+        "select-brotherhood-country",
+        handleBrotherhoodSelection
+      );
+    };
+  }, []);
 
   const selectedBrotherhoods = brotherhoods.filter(
     (item) => item.country === selectedCountry
   );
+  const countryBrotherhoodCount = brotherhoods.filter(
+  (item) => item.country === selectedCountry
+).length;
 
   const countryName =
     countryNames[selectedCountry] || selectedCountry;

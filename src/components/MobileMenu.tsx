@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import BrotherhoodSearch from "@/components/BrotherhoodSearch";
 
 const links = [
   { label: "Inicio", href: "#inicio" },
@@ -33,6 +34,9 @@ export default function MobileMenu() {
           className="mobile-nav"
           aria-label="Navegación móvil"
         >
+            <div className="mobile-search-slot">
+            <BrotherhoodSearch />
+          </div>
           {links.map((link) => (
             <a
               key={link.href}

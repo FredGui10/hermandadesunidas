@@ -3,6 +3,7 @@ import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import EuropeMap from "@/components/EuropeMap";
 import MobileMenu from "@/components/MobileMenu";
+import BrotherhoodSearch from "@/components/BrotherhoodSearch";
 
 const basePath =
   process.env.NODE_ENV === "production"
@@ -68,7 +69,8 @@ export default function Home() {
             <a href="#historia">Historia</a>
             <a href="#contacto">Contacto</a>
           </nav>
-
+          
+          <BrotherhoodSearch />
           <a href="#hermandades" className="header-button">
             DIRECTORIO <span>↗</span>
           </a>

@@ -9,6 +9,11 @@ import {
   Geography,
 } from "react-simple-maps";
 
+const basePath =
+  process.env.NODE_ENV === "production"
+    ? "/hermandadesunidas"
+    : "";
+
 const geoUrl =
   "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
@@ -176,9 +181,10 @@ export default function EuropeMap() {
                 >
                   <div className="country-card-image">
                     <Image
-                      src={`/images/${item.image}`}
+                      src={`${basePath}/images/${item.image}`}
                       alt={`Escudo de la hermandad de ${item.name}`}
                       fill
+                      unoptimized
                       sizes="(max-width: 640px) 100vw, 300px"
                     />
                   </div>
